@@ -12,6 +12,7 @@
     <thead class="thead-dark">
     <tr>
       <th scope="col">Id</th>
+      <th scope="col">Gambar</th>
       <th scope="col">Nama</th>
       <th scope="col">Harga</th>
       <th scope="col">Stok</th>
@@ -22,6 +23,7 @@
     @foreach($coba as $cb)
         <tr>
         <td>{{$cb->id}}</td>
+        <td>{{$cb->gambar}}</td>
         <td>{{$cb->nama}}</td>
         <td>{{$cb->harga}}</td>
         <td>{{$cb->stok}}</td>
