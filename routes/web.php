@@ -12,6 +12,8 @@
 */
 Route::resource('product','ProductController');
 
+Route::resource('feedback','FeedbackController');
+
 
 Auth::routes();
 
