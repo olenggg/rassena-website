@@ -7,7 +7,7 @@
                 <h2>Edit Feedback</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('feedback.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.feedback.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
   
-    <form action="{{ route('feedback.update',$feedback->id) }}" method="POST">
+    <form action="{{ route('admin.feedback.update',$feedback->id) }}" method="POST">
         @csrf
         @method('PUT')
    
@@ -32,6 +32,10 @@
             <input type="text" class="form-control" name="nama">
         </div>
 
+        <div class="form-group">
+            <strong>Pekerjaan:</strong>
+            <input type="text" class="form-control" name="pekerjaan">
+        </div>
 
         <div class="form-group">
             <strong>Email:</strong>
@@ -47,3 +51,5 @@
    
     </form>
 @endsection
+
+@include('backend.layouts.footer')

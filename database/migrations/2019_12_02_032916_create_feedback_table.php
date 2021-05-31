@@ -17,6 +17,7 @@ class CreateFeedbackTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('nama');
+            $table->string('pekerjaan');
             $table->string('email');
             $table->text('feedback');
 

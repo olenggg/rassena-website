@@ -21,6 +21,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Pekerjaan:</strong>
+                {{ $feedback->pekerjaan }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Email:</strong>
                 {{ $feedback->email }}
             </div>
@@ -33,3 +39,5 @@
         </div>
     </div>
 @endsection
+
+@include('backend.layouts.footer')

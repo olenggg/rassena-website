@@ -7,7 +7,7 @@
                 <h2>Edit Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('product.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.product.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         </div>
     @endif
   
-    <form action="{{ route('product.update',$product->id) }}" method="POST">
+    <form action="{{ route('admin.product.update',$product->id) }}" method="POST">
         @csrf
         @method('PUT')
    
@@ -45,6 +45,11 @@
         </div>
 
         <div class="form-group">
+            <strong>Gambar:</strong>
+            <input type="file" class="form-control" name="gambar">
+        </div>
+
+        <div class="form-group">
             <strong>Deskripsi:</strong>
             <textarea type="text" class="form-control" name="deskripsi" style="height:150px"></textarea>
         </div>
@@ -54,3 +59,5 @@
    
     </form>
 @endsection
+
+@include('backend.layouts.footer')

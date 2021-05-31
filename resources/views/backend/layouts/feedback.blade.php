@@ -26,7 +26,7 @@
         <!-- end container-fluid -->
 
     <!-- footer -->
-    @include('backend.layouts.footer')
+
         <!-- end footer -->
     </div>
     <!-- END content-wrapper -->

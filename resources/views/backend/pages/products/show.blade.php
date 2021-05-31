@@ -7,7 +7,7 @@
                 <h2> Show Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('product.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('admin.product.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -29,6 +29,12 @@
             <div class="form-group">
                 <strong>Stok:</strong>
                 {{ $products->stok }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Gambar:</strong>
+                {{ $products->gambar }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

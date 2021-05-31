@@ -41,13 +41,14 @@ class FeedbackController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'pekerjaan' => 'required',
             'email' => 'required',
             'feedback' => 'required',
         ]);
 
         Feedback::create($request->all());
 
-        return redirect()->route('feedback.index')
+        return redirect()->route('admin.feedback.index')
                         ->with('success','Feedback received successfully');
     }
 
@@ -84,6 +85,7 @@ class FeedbackController extends Controller
     {
         $request->validate([
             'nama' => 'required',
+            'pekerjaan' => 'required',
             'email' => 'required',
             'feedback' => 'required',
  
@@ -91,7 +93,7 @@ class FeedbackController extends Controller
 
         $feedback->update($request->all());
 
-        return redirect()->route('feedback.index')
+        return redirect()->route('admin.feedback.index')
                         ->with('success','feedback received successfully');
     }
 
@@ -105,7 +107,7 @@ class FeedbackController extends Controller
     {
         $feedback->delete();
 
-        return redirect()->route('feedback.index')
+        return redirect()->route('admin.feedback.index')
                         ->with('success','feedback deleted successfully');
     }
 }

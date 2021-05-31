@@ -44,12 +44,30 @@ class ProductController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'stok' => 'required',
+            'gambar'=> 'image|nullable|max:1999',
             'deskripsi' => 'required'
         ]);
+        if($request->hasFile('gambar')){
+            $filenameWithExt = $request->file('gambar')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('gambar')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('gambar')->storeAs('public/beras_image',
+             $filenameSimpan);
+        }else{
+            $filenameSimpan = 'noimage.jpg';
+        }
 
-        Product::create($request->all());
+        // Product::create($request->all());
+        $products= new Product;
+        $products->nama=$request->input('nama');
+        $products->harga=$request->input('harga');
+        $products->stok=$request->input('stok');
+        $products->gambar=$filenameSimpan;
+        $products->deskripsi=$request->input('deskripsi');
+        $products->save();
 
-        return redirect()->route('product.index')
+        return redirect()->route('admin.product.index')
                         ->with('success','Product created successfully');
     }
 
@@ -88,12 +106,13 @@ class ProductController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'stok' => 'required',
+            'gambar'=> 'required',
             'deskripsi' => 'required'
         ]);
 
         $product->update($request->all());
 
-        return redirect()->route('product.index')
+        return redirect()->route('admin.product.index')
                         ->with('success','Product updated successfully');
     }
 
@@ -107,7 +126,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('product.index')
+        return redirect()->route('admin.product.index')
                         ->with('success','Product deleted successfully');
     }
 }

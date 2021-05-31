@@ -20,25 +20,27 @@
             Data Table Example
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('product.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('admin.product.create') }}"> Create New Product</a>
             </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>Nama</th>
+                    <th>nama</th>
                     <th>harga</th>
                     <th>stok</th>
+                    <th>gambar</th>
                     <th>deskripsi</th>
                     <th>action</th>
                   </tr>
                 </thead>
                 <tfoot>
                   <tr>
-                  <th>Nama</th>
+                  <th>nama</th>
                     <th>harga</th>
                     <th>stok</th>
+                    <th>gambar</th>
                     <th>deskripsi</th>
                     <th>action</th>
                   </tr>
@@ -49,13 +51,14 @@
                       <td>{{$pro->nama}}</td>
                       <td>{{$pro->harga}}</td>
                       <td>{{$pro->stok}}</td>
+                      <td>{{$pro->gambar}}</td>
                       <td>{{$pro->deskripsi}}</td>
                       <td>
-                      <form action="{{ route('product.destroy',$pro->id) }}" method="POST">
+                      <form action="{{ route('admin.product.destroy',$pro->id) }}" method="POST">
    
-                        <a class="btn btn-info" href="{{ route('product.show',$pro->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('admin.product.show',$pro->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('product.edit',$pro->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('admin.product.edit',$pro->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
@@ -68,14 +71,11 @@
                 </tbody>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-
-        <p class="small text-center text-muted my-5">
-          <em>More table examples coming soon...</em>
-        </p>
         </div>
 <!-- /.container-fluid -->
 
     
 @endsection
+
+@include('backend.layouts.footer')

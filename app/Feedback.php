@@ -10,6 +10,7 @@ class Feedback extends Model
     protected $fillable = [
         'nama',
         'email',
+        'pekerjaan',
         'feedback'
     ];
 }

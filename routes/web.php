@@ -13,20 +13,22 @@
 Route::get('/', function(){
     return view('frontend.pages.welcome');
 });
+Route::get('/about', function(){
+    return view('frontend.pages.about');
+});
+Route::get('/products','PostController@index');
 
-Route::resource('product','ProductController');
+Route::resource('/feedbacks', 'FeedController');
 
-Route::resource('feedback','FeedbackController');
+Route::group(['prefix'=>'admin','middleware'=>['auth'], 'as'=>'admin.'],function(){
+    Route::resource('product','ProductController');
+
+    Route::resource('feedback','FeedbackController');
+    
+});
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
